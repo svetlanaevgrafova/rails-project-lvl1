@@ -1,4 +1,5 @@
 AllCops:
+  NewCops: enable
   TargetRubyVersion: 2.6
   SuggestExtensions: false
 
@@ -14,4 +15,11 @@ Layout/LineLength:
   Max: 120
 
 Style/Documentation:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - ./spec/**/*
+
+Gemspec/RequireMFA:
   Enabled: false
