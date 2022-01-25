@@ -1,4 +1,4 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/svetlanaevgrafova/rails-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/svetlanaevgrafova/rails-project-lvl1/actions)
-[![Actions Status](https://github.com/svetlanaevgrafova/rails-project-lvl1/workflows/linter/badge.svg)](https://github.com/svetlanaevgrafova/rails-project-lvl1/actions)
-[![Actions Status](https://github.com/svetlanaevgrafova/rails-project-lvl1/workflows/test/badge.svg)](https://github.com/svetlanaevgrafova/rails-project-lvl1/actions)
+[![Makefile linter CI](https://github.com/svetlanaevgrafova/rails-project-lvl1/actions/workflows/linter.yml/badge.svg?branch=main)](https://github.com/svetlanaevgrafova/rails-project-lvl1/actions/workflows/linter.yml)
+[![Makefile test CI](https://github.com/svetlanaevgrafova/rails-project-lvl1/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/svetlanaevgrafova/rails-project-lvl1/actions/workflows/test.yml)
