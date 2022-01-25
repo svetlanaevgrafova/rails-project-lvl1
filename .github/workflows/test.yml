@@ -1,5 +1,4 @@
-
-name: Makefile test CI
+name: Tests
 
 on:
   push:

@@ -1,5 +1,4 @@
-
-name: Makefile linter CI
+name: Linter
 
 on:
   push:
