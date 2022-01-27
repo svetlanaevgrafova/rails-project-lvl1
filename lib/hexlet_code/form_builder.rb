@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module HexletCode
-  class Magic
+  class FormBuilder
     attr_reader :result
 
     def initialize(person)

@@ -2,7 +2,7 @@
 
 require_relative "hexlet_code/version"
 require_relative "hexlet_code/tag"
-require_relative "hexlet_code/magic"
+require_relative "hexlet_code/form_builder"
 
 module HexletCode
   class << self
@@ -11,7 +11,7 @@ module HexletCode
       kvargs[:method] = "post"
 
       HexletCode::Tag.build("form", kvargs) do
-        f = HexletCode::Magic.new(person)
+        f = HexletCode::FormBuilder.new(person)
         block.call(f) if block_given?
         "#{f.result}\n"
       end
