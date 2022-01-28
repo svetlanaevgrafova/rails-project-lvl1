@@ -9,19 +9,31 @@ module HexletCode
       @result = String.new
     end
 
-    # rubocop:disable Naming/MethodParameterName
-    def input(person_methods, as: nil, **kvargs)
-      # rubocop:enable Naming/MethodParameterName
-      value = @person.public_send(person_methods)
+    # rubocop:disable Naming/MethodParameterName, Metrics/MethodLength
+    def input(field_name, as: nil, **kvargs)
+      # rubocop:enable Naming/MethodParameterName, Metrics/MethodLength
+      value = @person.public_send(field_name)
+      put_label(field_name)
       @result << "\n"
       @result <<
         if as.nil?
-          options = { name: person_methods.to_s, type: "text", value: value }.merge(kvargs)
+          options = { name: field_name.to_s, type: "text", value: value }.compact.merge(kvargs)
           HexletCode::Tag.build("input", **options)
         else
-          options = { cols: 20, rows: 40, name: person_methods.to_s }.merge(kvargs)
+          options = { cols: 20, rows: 40, name: field_name.to_s }.merge(kvargs)
           HexletCode::Tag.build("textarea", **options) { value }
         end
+    end
+
+    def put_label(field_name)
+      @result << "\n"
+      @result << HexletCode::Tag.build("label", for: field_name.to_s) { field_name.to_s.capitalize }
+    end
+
+    def submit(**kvargs)
+      @result << "\n"
+      options = { name: "commit", type: "submit", value: "Save" }.merge(kvargs)
+      @result << HexletCode::Tag.build("input", **options)
     end
   end
 end

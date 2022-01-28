@@ -21,11 +21,14 @@ RSpec.describe HexletCode do
     end
 
     context "with user and block" do
-      it "returns form for user" do
-        expected_result = File.read("spec/fixtures/html_form_1.html")
+      let(:user) { User.new(job: "hexlet", gender: "m") }
+
+      it "returns form submission" do
+        expected_result = File.read("spec/fixtures/html_form_2.html")
         result = HexletCode.form_for user do |f|
-          f.input :name, class: "lg"
-          f.input :job, as: :text, id: :job_text_field
+          f.input :name, id: "user_id"
+          f.input :job, class: "lg"
+          f.submit class: "button"
         end
         expect(result).to eq(expected_result)
       end
