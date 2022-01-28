@@ -26,9 +26,9 @@ RSpec.describe HexletCode do
       it "returns form submission" do
         expected_result = File.read("spec/fixtures/html_form_2.html")
         result = HexletCode.form_for user do |f|
-          f.input :name
-          f.input :job
-          f.submit
+          f.input :name, id: "user_id"
+          f.input :job, class: "lg"
+          f.submit class: "button"
         end
         expect(result).to eq(expected_result)
       end
