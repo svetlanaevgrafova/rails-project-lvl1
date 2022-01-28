@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require_relative "support/user"
 require "hexlet_code"
 
 RSpec.configure do |config|
