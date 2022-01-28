@@ -10,7 +10,7 @@ module HexletCode
     def form_for(person, url: "#", **kvargs, &block)
       options = { action: url, method: "post" }.merge(kvargs)
 
-      HexletCode::Tag.build("form", options) do
+      HexletCode::Tag.build("form", **options) do
         f = HexletCode::FormBuilder.new(person)
         block.call(f) if block_given?
         "#{f.result}\n"
