@@ -9,10 +9,17 @@ module HexletCode
       @result = String.new
     end
 
-    def input(person_methods)
+    def input(person_methods, as: nil, **kvargs)
       value = @person.public_send(person_methods)
       @result << "\n"
-      @result << HexletCode::Tag.build("input", name: person_methods.to_s, type: "text", value: value)
+      @result <<
+        if as.nil?
+          options = { name: person_methods.to_s, type: "text", value: value }.merge(kvargs)
+          HexletCode::Tag.build("input", **options)
+        else
+          options = { cols: 20, rows: 40, name: person_methods.to_s }.merge(kvargs)
+          HexletCode::Tag.build("textarea", **options) { value }
+        end
     end
   end
 end

@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
 require_relative "hexlet_code/version"
-require_relative "hexlet_code/tag"
-require_relative "hexlet_code/form_builder"
 
 module HexletCode
-  class << self
-    def form_for(person, **kvargs, &block)
-      kvargs[:action] = kvargs.delete(:url) || "#"
-      kvargs[:method] = "post"
+  autoload("FormBuilder", "hexlet_code/form_builder.rb")
+  autoload("Tag", "hexlet_code/tag.rb")
 
-      HexletCode::Tag.build("form", kvargs) do
+  class << self
+    def form_for(person, url: "#", **kvargs, &block)
+      options = { action: url, method: "post" }.merge(kvargs)
+
+      HexletCode::Tag.build("form", options) do
         f = HexletCode::FormBuilder.new(person)
         block.call(f) if block_given?
         "#{f.result}\n"
