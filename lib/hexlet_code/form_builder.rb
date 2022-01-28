@@ -30,9 +30,9 @@ module HexletCode
       @result << HexletCode::Tag.build("label", for: field_name.to_s) { field_name.to_s.capitalize }
     end
 
-    def submit(**kvargs)
+    def submit(text_field = "Save", **kvargs)
       @result << "\n"
-      options = { name: "commit", type: "submit", value: "Save" }.merge(kvargs)
+      options = { name: "commit", type: "submit", value: text_field.to_s }.merge(kvargs)
       @result << HexletCode::Tag.build("input", **options)
     end
   end
