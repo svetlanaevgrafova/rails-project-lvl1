@@ -9,9 +9,9 @@ module HexletCode
       @result = String.new
     end
 
-    # rubocop:disable Naming/MethodParameterName, Metrics/MethodLength
+    # rubocop:disable Naming/MethodParameterName
     def input(field_name, as: nil, **kvargs)
-      # rubocop:enable Naming/MethodParameterName, Metrics/MethodLength
+      # rubocop:enable Naming/MethodParameterName
       value = @person.public_send(field_name)
       put_label(field_name)
       @result << "\n"
