@@ -17,23 +17,23 @@ module HexletCode
       @result << "\n"
       @result <<
         if as.nil?
-          options = { name: field_name.to_s, type: "text", value: value }.compact.merge(kvargs)
-          HexletCode::Tag.build("input", **options)
+          options = { name: field_name.to_s, type: 'text', value: value }.compact.merge(kvargs)
+          HexletCode::Tag.build('input', **options)
         else
           options = { cols: 20, rows: 40, name: field_name.to_s }.merge(kvargs)
-          HexletCode::Tag.build("textarea", **options) { value }
+          HexletCode::Tag.build('textarea', **options) { value }
         end
     end
 
     def put_label(field_name)
       @result << "\n"
-      @result << HexletCode::Tag.build("label", for: field_name.to_s) { field_name.to_s.capitalize }
+      @result << HexletCode::Tag.build('label', for: field_name.to_s) { field_name.to_s.capitalize }
     end
 
-    def submit(text_field = "Save", **kvargs)
+    def submit(text_field = 'Save', **kvargs)
       @result << "\n"
-      options = { name: "commit", type: "submit", value: text_field.to_s }.merge(kvargs)
-      @result << HexletCode::Tag.build("input", **options)
+      options = { name: 'commit', type: 'submit', value: text_field.to_s }.merge(kvargs)
+      @result << HexletCode::Tag.build('input', **options)
     end
   end
 end

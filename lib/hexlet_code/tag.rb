@@ -7,10 +7,10 @@ module HexletCode
       def build(tag, **kvargs, &block)
         result = []
 
-        result << "<"
+        result << '<'
         result << tag
         add_hash(result, kvargs) if kvargs.any?
-        result << ">"
+        result << '>'
 
         unless UNPAIRED_TAGS.include? tag
           add_block(result, block) if block_given?
